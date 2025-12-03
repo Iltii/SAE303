@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function() {
   
   const btnDroite = document.querySelector('#bouton-droite');
   const btnGauche = document.querySelector('#bouton-gauche');
-  const btnVert   = document.querySelector('#bouton-vert'); // Nouveau bouton
 
   const imgDroite = document.querySelector('#image-droite');
   const conteneurChapeaux = document.querySelector('#conteneur-chapeaux');
@@ -17,25 +16,14 @@ document.addEventListener("DOMContentLoaded", function() {
       // ON AFFICHE LE MENU
       btnDroite.setAttribute('visible', 'true');
       btnDroite.classList.add('clickable');
-      
       btnGauche.setAttribute('visible', 'true');
       btnGauche.classList.add('clickable');
-      
-      // Gestion du nouveau bouton
-      btnVert.setAttribute('visible', 'true');
-      btnVert.classList.add('clickable');
-      
     } else {
       // ON CACHE LE MENU
       btnDroite.setAttribute('visible', 'false');
       btnDroite.classList.remove('clickable');
-      
       btnGauche.setAttribute('visible', 'false');
       btnGauche.classList.remove('clickable');
-
-      // Gestion du nouveau bouton
-      btnVert.setAttribute('visible', 'false');
-      btnVert.classList.remove('clickable');
     }
   }
 
@@ -152,18 +140,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const els = conteneurChapeaux.querySelectorAll('a-gltf-model');
         els.forEach(el => el.emit('go'));
     }, 50);
-  });
-  
-  // =========================================================
-  // 3. NOUVEAU BOUTON (VERT)
-  // =========================================================
-
-  btnVert.addEventListener('click', function() {
-    console.log("Clic sur le bouton vert !");
-    leSon.currentTime = 0; leSon.play();
-
-    // ICI : Tu peux ajouter ce que ce bouton doit faire plus tard.
-    // Pour l'instant, il joue juste le son.
   });
 
 });
