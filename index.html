@@ -8,39 +8,115 @@
     <script src="./script.js"></script>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets-2.mind" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: ./targets-4.mind" 
+             color-space="sRGB" 
+             renderer="colorManagement: true, physicallyCorrectLights" 
+             vr-mode-ui="enabled: false" 
+             device-orientation-permission-ui="enabled: false">
       
       <a-assets>
         <audio id="son-pop" src="son/swosh.wav" preload="auto"></audio>
+        <audio id="son-musique" src="son/musique_victoire.mp3" preload="auto"></audio>
+        
+        <img id="texture-diplome" src="images/diplome.png">
+
         <a-asset-item id="modele-chapeau" src="3D/mortarboard_graduation_hat.glb"></a-asset-item>
+        <a-asset-item id="modele-ecole" src="3D/school76.glb"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
         
-        <a-image id="mon-image-de-fond" 
-                 src="images/31776a80574237f9e3bf1ea43af46a30.jpg" 
-                 position="0 0 0" height="2.3" width="1.5" opacity="1"
-                 animation__aller="property: color; from: #FFFFFF; to: #555555; dur: 2000; startEvents: startAnimation; easing: easeInOutQuad"
-                 animation__retour="property: color; from: #555555; to: #FFFFFF; dur: 2000; startEvents: closeAnimation; easing: easeInOutQuad">
-        </a-image>
-        
-        <a-plane id="bouton-droite" class="clickable" color="red" opacity="0.5" position="0.42 0.65 0.1" height="0.3" width="0.3"></a-plane>
+        <a-entity id="conteneur-global" scale="0.7 0.7 0.7">
 
-        <a-image id="image-droite" class="clickable" visible="false" src="images/graphhautdroite.png" height="1" width="1"
-                 position="0 0 0.1" scale="0.01 0.01 0.01"
-                 animation__scale_aller="property: scale; to: 1 1 1; dur: 2000; startEvents: startAnimation; easing: easeOutBack"
-                 animation__pos_aller="property: position; to: 0 0 1; dur: 2000; startEvents: startAnimation; easing: easeInOutQuad"
-                 animation__scale_retour="property: scale; to: 0.01 0.01 0.01; dur: 2000; startEvents: closeAnimation; easing: easeInBack"
-                 animation__pos_retour="property: position; to: 0 0 0.1; dur: 2000; startEvents: closeAnimation; easing: easeInOutQuad">
-        </a-image>
+            <a-image id="mon-image-de-fond" 
+                     src="images/SAE303.png" 
+                     position="0 0 0" height="2.3" width="1.5" opacity="1"
+                     material="alphaTest: 0.5; transparent: true"
+                     animation__aller="property: color; from: #FFFFFF; to: #555555; dur: 2000; startEvents: startAnimation; easing: easeInOutQuad"
+                     animation__retour="property: color; from: #555555; to: #FFFFFF; dur: 2000; startEvents: closeAnimation; easing: easeInOutQuad">
+            </a-image>
 
-        <a-plane id="bouton-gauche" class="clickable" color="blue" opacity="0.5" position="-0.42 0.65 0.1" height="0.3" width="0.3"></a-plane>
+            <a-image id="seconde-image" 
+                     src="images/fond.jpg" 
+                     visible="false"
+                     material="alphaTest: 0.5; transparent: true"
+                     position="0 0 0.01" height="2.3" width="1.5">
+            </a-image>
+            
+            <a-image id="image-decalee1" src="images/titre.png" visible="false" position="-0.30441 0.89269 0.20723" height="0.4" width="0.4" scale="2.17 0.97 1" material="alphaTest: 0.5; transparent: true"></a-image>
+            <a-image id="image-decalee2" src="images/top3.png" visible="false" position="0.25796 -0.80119 0.11046" height="0.4" width="0.4" scale="1.82 1.05 1" material="alphaTest: 0.5; transparent: true"></a-image>
+            <a-image id="image-decalee4" src="images/toit.png" visible="false" position="-0.13166 0.41503 0.21816" height="0.4" width="0.4" scale="2.42 0.8 1" material="alphaTest: 0.5; transparent: true"></a-image>
+            <a-image id="image-decalee5" src="images/texte toit.png" visible="false" position="-0.12698 0.54037 0.13178" height="0.4" width="0.4" scale="2.06 0.67 1" material="alphaTest: 0.5; transparent: true"></a-image>
+            <a-image id="image-decalee6" src="images/textgraph.png" visible="false" position="0.42371 0.81906 0.20648" height="0.4" width="0.4" scale="" material="alphaTest: 0.5; transparent: true"></a-image>
+            <a-image id="image-decalee7" src="images/graph.png" visible="false" position="0.43876 0.81857 0.09008" height="0.4" width="0.4" scale="1.34 1.34 1.45" material="alphaTest: 0.5; transparent: true"></a-image>
+            <a-image id="image-decalee8" src="images/faites votre choix.png" visible="false" position="0.12794 -0.1973 0.34196" height="0.4" width="0.4" scale="1.13 1.96 1.01" material="alphaTest: 0.5; transparent: true"></a-image>
+            <a-image id="image-decalee9" src="images/21 etudiants.png" visible="" position="-0.38328 -0.06606 0.27197" height="0.4" width="0.4" scale="1.29 1.4 1" material="alphaTest: 0.5" geometry=""></a-image>
+            <a-image id="image-decalee10" src="images/Chapeaux.png" visible="false" position="0.53897 -0.07363 0.10767" height="0.4" width="0.4" scale="0.67 2.6 1.01" material="alphaTest: 0.5; transparent: true"></a-image>
+            <a-image id="image-decalee11" src="images/90dormation.png" visible="false" position="-0.38959 -0.68548 0.29318" height="0.4" width="0.4" scale="1.34 1.47 1.01" material="alphaTest: 0.5; transparent: true"></a-image>
 
-        <a-entity id="conteneur-chapeaux" class="clickable" visible="false" position="0 0 0.1"></a-entity>
-        
-      </a-entity>
+            <a-plane id="bouton-droite" class="clickable" color="red" opacity="0.2" position="0.42273 0.77163 0.07506" height="0.3" width="0.3"></a-plane>
+            <a-plane id="bouton-musiquetop3" class="clickable" color="green" opacity="0.2" position="0.26605 -0.83413 0.07506" height="0.3" width="0.3" scale="2.42 1.13 1"></a-plane>
+            <a-plane id="bouton-jaune" class="clickable" color="yellow" opacity="0.2" position="-0.39444 -0.61967 0.07506" height="0.3" width="0.3" scale="1.61 1.47 1"></a-plane>
+            <a-plane id="bouton-gauche" class="clickable" color="blue" opacity="0.2" position="0.53667 -0.02351 0.07506" height="0.3" width="0.3" scale="1 3.14 1"></a-plane>
+            <a-plane id="bouton-ecoles" class="clickable" color="#8A2BE2" opacity="0.2" position="0.13897 -0.23443 0.07506" height="0.3" width="0.3" scale="1.42 2.54 1" material="" geometry="" visible=""></a-plane>
+
+            <a-entity id="conteneur-confettis" position="0 0 0.3"></a-entity>
+            <a-entity id="conteneur-diplomes" position="0 0 0.3"></a-entity>
+
+            <a-entity id="graphique-3d" visible="false" position="0 -0.8 0.2" scale="0.01 0.01 0.01"
+                      animation__open="property: scale; to: 1 1 1; dur: 1500; startEvents: openGraph; easing: easeOutElastic"
+                      animation__close="property: scale; to: 0.01 0.01 0.01; dur: 500; startEvents: closeGraph; easing: easeInBack">
+                <a-plane class="clickable" id="zone-fermeture-graph" position="0 0.5 0" width="2" height="2" opacity="0.01"></a-plane>
+                <a-text value="TOP 3" position="0 1.5 0" align="center" color="white" scale="1.5 1.5 1.5"></a-text>
+                <a-box color="#C0C0C0" position="-0.5 0.35 0" height="0.7" width="0.3" depth="0.3"></a-box>
+                <a-text value="2" position="-0.5 0.35 0.16" align="center" color="white" scale="1.5 1.5 1.5"></a-text>
+                <a-text value="Commerce\nCommunication" position="-0.5 0.85 0" align="center" color="white" scale="0.4 0.4 0.4"></a-text>
+                <a-box color="#FFD700" position="0 0.5 0" height="1.0" width="0.3" depth="0.3"></a-box>
+                <a-text value="1" position="0 0.5 0.16" align="center" color="white" scale="1.5 1.5 1.5"></a-text>
+                <a-text value="Medicale\nSanitaire" position="0 1.15 0" align="center" color="white" scale="0.4 0.4 0.4"></a-text>
+                <a-box color="#CD7F32" position="0.5 0.2 0" height="0.4" width="0.3" depth="0.3"></a-box>
+                <a-text value="3" position="0.5 0.2 0.16" align="center" color="white" scale="1.5 1.5 1.5"></a-text>
+                <a-text value="Numerique" position="0.5 0.55 0" align="center" color="white" scale="0.4 0.4 0.4"></a-text>
+            </a-entity>
+
+            <a-entity id="groupe-ecoles" visible="false" position="0 0 0.3" scale="0.01 0.01 0.01"
+                      animation__open="property: scale; to: 1 1 1; dur: 1000; startEvents: openEcoles; easing: easeOutBack"
+                      animation__close="property: scale; to: 0.01 0.01 0.01; dur: 500; startEvents: closeEcoles; easing: easeInBack">
+                
+                <a-plane class="clickable" id="zone-fermeture-ecoles" position="0 0 0" width="3" height="3" opacity="0.01"></a-plane>
+
+                <a-text value="Plus de 6 filieres !" position="0 1.0 0" align="center" color="white" scale="0.8 0.8 0.8"></a-text>
+
+                <a-gltf-model src="#modele-ecole" position="-0.5 0.6 0" scale="0.01 0.01 0.01" rotation="0 45 0"></a-gltf-model>
+                <a-gltf-model src="#modele-ecole" position="0.5 0.6 0" scale="0.01 0.01 0.01" rotation="0 -45 0"></a-gltf-model>
+                <a-gltf-model src="#modele-ecole" position="-0.5 0 0" scale="0.01 0.01 0.01" rotation="0 45 0"></a-gltf-model>
+                <a-gltf-model src="#modele-ecole" position="0.5 0 0" scale="0.01 0.01 0.01" rotation="0 -45 0"></a-gltf-model>
+                <a-gltf-model src="#modele-ecole" position="-0.5 -0.6 0" scale="0.01 0.01 0.01" rotation="0 45 0"></a-gltf-model>
+                <a-gltf-model src="#modele-ecole" position="0.5 -0.6 0" scale="0.01 0.01 0.01" rotation="0 -45 0"></a-gltf-model>
+            </a-entity>
+
+            <a-image id="image-jaune" class="clickable" visible="false" 
+              src="images/90dormation.png" height="1" width="1" position="0 0 0.1" scale="0"></a-image>
+
+            <a-image id="image-droite" class="clickable" visible="false" src="images/graphavectypo.png" height="1" width="1"
+               position="0 0 0.1" scale="0.01 0.01 0.01"
+               material="alphaTest: 0.5; transparent: true"
+               animation__scale_aller="property: scale; to: 1 1 1; dur: 2000; startEvents: startAnimation; easing: easeOutBack"
+               animation__pos_aller="property: position; to: 0 0 0.4; dur: 2000; startEvents: startAnimation; easing: easeInOutQuad"
+               animation__scale_retour="property: scale; to: 0.01 0.01 0.01; dur: 2000; startEvents: closeAnimation; easing: easeInBack"
+               animation__pos_retour="property: position; to: 0 0 0.1; dur: 2000; startEvents: closeAnimation; easing: easeInOutQuad">
+            </a-image>
+
+            <a-entity id="conteneur-chapeaux" class="clickable" visible="false" position="0 0 0.1"></a-entity>
+            
+            <a-entity position="0 -1.35 0">
+               <a-plane id="bouton-lien" class="clickable" color="white" width="1.2" height="0.25"></a-plane>
+               <a-text id="texte-lien" value="Voir l'affiche en 3D" color="black" align="center" width="3" position="0 0 0.01"></a-text>
+            </a-entity>
+
+        </a-entity> </a-entity>
     </a-scene>
   </body>
 </html>
